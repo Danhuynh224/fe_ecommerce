@@ -30,8 +30,6 @@ export const AuthProvider = ({ children }) => {
       } catch {
         handleLogout();
       }
-    } else {
-      navigate("/login");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
