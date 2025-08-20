@@ -6,6 +6,7 @@ import LoginPage from "./page/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 // import SupplierDashboard from "./page/SupplierDashboard";
 import { AuthProvider } from "./context/AuthProvider";
+import SupplierLayout from "./layouts/SupplierLayout";
 
 const App = () => {
   return (
@@ -35,38 +36,19 @@ const App = () => {
 
         {/* Route quản lý nhà cung cấp */}
         <Route element={<ProtectedRoute />}>
-          <Route
-            path="/supplier/manage"
-            element={<div>Dashboard Nhà Cung Cấp</div>}
-          />
-          <Route
-            path="/supplier/manage/identification"
-            element={<div>Thông Tin Định Danh</div>}
-          />
-          <Route
-            path="/supplier/manage/contact"
-            element={<div>Thông Tin Liên Hệ</div>}
-          />
-          <Route
-            path="/supplier/manage/legal"
-            element={<div>Thông Tin Pháp Lý</div>}
-          />
-          <Route
-            path="/supplier/manage/bank"
-            element={<div>Tài Khoản Ngân Hàng</div>}
-          />
-          <Route
-            path="/supplier/manage/operations"
-            element={<div>Vận Hành</div>}
-          />
-          <Route
-            path="/supplier/manage/store"
-            element={<div>Quản Lý Gian Hàng</div>}
-          />
-          <Route
-            path="/supplier/manage/add-product"
-            element={<div>Thêm Sản Phẩm</div>}
-          />
+          <Route path="/supplier/manage" element={<SupplierLayout />}>
+            <Route index element={<div>Dashboard Nhà Cung Cấp</div>} />
+            <Route
+              path="identification"
+              element={<div>Thông Tin Định Danh</div>}
+            />
+            <Route path="contact" element={<div>Thông Tin Liên Hệ</div>} />
+            <Route path="legal" element={<div>Thông Tin Pháp Lý</div>} />
+            <Route path="bank" element={<div>Tài Khoản Ngân Hàng</div>} />
+            <Route path="operations" element={<div>Vận Hành</div>} />
+            <Route path="store" element={<div>Quản Lý Gian Hàng</div>} />
+            <Route path="add-product" element={<div>Thêm Sản Phẩm</div>} />
+          </Route>
         </Route>
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
